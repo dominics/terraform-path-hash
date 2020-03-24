@@ -10,13 +10,13 @@ For example, with API Gateway you might want to trigger deployments.
 
 ```hcl
 module "path_hash" {
-  source = "github.com/claranet/terraform-path-hash?ref=v0.1.0"
+  source = "github.com/claranet/terraform-path-hash?ref=v0.3.0"
   path   = "${path.module}"
 }
 
 resource "aws_api_gateway_deployment" "api" {
-  ...
+  # ...
   stage_description = "${module.path_hash.result}"
-  ...
+  # ...
 }
 ```
